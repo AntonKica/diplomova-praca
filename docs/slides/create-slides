@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [[ $# -ne 1 ]]; then
+  echo "missing name, example usage: $0 <YYYY-MM-DD>"
+  exit -1
+fi
+
+FILE=$1
+if [[ -e $FILE ]]; then
+  echo "file $1 already exists, aborting"
+  exit -1
+fi
+
+echo "created $FILE from template"
+cp -r beamer-template $FILE
